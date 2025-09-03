@@ -927,13 +927,20 @@ html, body {
 
 /* ===== MOBILE ===== */
 @media (max-width: 480px) {
+	.logo-phone-socials {
+		padding: 0;;
+	}
+	.logo-phone-socials .col-2, .logo-phone-socials .col-3, .logo-phone-socials .col-4 {
+		Display: None;
+	}
+	
 	.navbar-toggle {
 		display: block;
   	}
 	.navbar-container {
     padding: 0 1rem;
   	}
-	.nav .col-2 {
+	.nav {
 		display: none; /* hide wide search bar */
 	}
 
