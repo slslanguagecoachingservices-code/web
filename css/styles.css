@@ -6,7 +6,7 @@ body {
 
 /*HEADING */
 header {
-	background-image: url("images/newindexbg2.png");
+	background-image: url("/images/newindexbg2.png");
 	background-attachment: fixed;
 	display: flex;
 	flex-direction: column;
