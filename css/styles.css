@@ -185,7 +185,7 @@ header {
 /* STATS Section */
 .sls-numbers {
   padding: 3rem 1.5rem;
-  background: url('../images/toronto-canada-landmark.webp') center/cover no-repeat;
+  background: url("../images/toronto-canada-landmark.webp") center/cover no-repeat;
   text-align: center;
   position: relative;
   color: #fff;
