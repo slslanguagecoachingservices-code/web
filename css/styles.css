@@ -1044,4 +1044,25 @@ html, body {
 		font-size: 0.85rem !important;
 		line-height: 1.4 !important;
 	}
+
+	/*Footer*/
+	.footer {
+		flex-direction: column;
+		text-align: center;
+		gap: 30px;
+	}
+	.footer .partners
+	{
+		flex-direction: column;
+		gap: 10px;
+		align-items: center;
+	}
+	.footer .partners img {
+		width: 100px;
+	}
+	.Socials .icons {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
 }
