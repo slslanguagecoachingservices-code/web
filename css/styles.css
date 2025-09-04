@@ -875,7 +875,7 @@ html, body {
    WEB DESIGN
    ===================== */
 
-@media  screen and (max-width: 1129px) {
+@media (min-width: 993px) and (max-width: 1180px) {
 	header {
 		background-image: url("../images/backgrd2.png");
 	}
@@ -913,7 +913,7 @@ html, body {
 /* ===== TABLETS ===== */
 
 /* Horizontal Tablet */
-@media (max-width: 963px) {
+@media (min-width: 779px) and (max-width: 992px) {
 	.logo-phone-socials .col-2, 
 	.logo-phone-socials .col-3, 
 	.logo-phone-socials .col-4, 
@@ -950,7 +950,7 @@ html, body {
 }
 
 /* Vertical Tablet */
-@media screen and (max-width: 768px) {
+@media (min-width: 601px) and (max-width: 778px){
 	/*Hidden*/
 	.logo-phone-socials .col-2, 
 	.logo-phone-socials .col-3, 
@@ -1098,8 +1098,6 @@ html, body {
 		.number-item p {
 			font-size: 1rem;
 		}
-	}
-
 
 	/*Footer*/
 	.footer {
@@ -1125,7 +1123,7 @@ html, body {
 /* ===== MOBILE ===== */
 
 /*Biggest Mobile*/
-@media screen and (max-width: 600px) {
+@media (min-width: 401px) and (max-width: 600px) {
 	/*Hidden*/
 	.logo-phone-socials .col-2, 
 	.logo-phone-socials .col-3, 
@@ -1418,7 +1416,6 @@ html, body {
 	}
 
 	/*Stats Section*/
-	@media (max-width: 400px) {
 	.sls-numbers {
 		padding: 2rem 1rem;
 	}
@@ -1448,7 +1445,50 @@ html, body {
 	.number-item p {
 		font-size: 0.9rem;
 	}
-}
+	/* Our Courses Section */
+	.courses-section {
+		padding: 2rem 1rem;
+		height: auto;
+		min-height: 80vh;
+  	}
+	.courses-subtitle {
+		font-size: 0.8rem;
+		letter-spacing: 1px;
+	}
+  	.courses-title {
+		font-size: 1.5rem;
+		margin-bottom: 2rem;
+	}
+	.courses-carousel {
+		gap: 1rem;
+		padding: 0 1rem;
+	}
+	.course-card {
+		width: 150px;
+		padding: 1.5rem 1rem;
+		height: 180px;
+	}
+	.course-icon {
+		font-size: 2rem;
+		margin-bottom: 0.75rem;
+	}
+	.course-card h3 {
+    	font-size: 1rem;
+	}
+	.course-card p {
+    	font-size: 0.85rem;
+	}
+	.carousel-nav {
+		width: 40px;
+		height: 40px;
+		font-size: 1.2rem;
+	}
+	.carousel-prev {
+    	left: 0.5rem;
+	}
+	.carousel-next {
+		right: 0.5rem;
+	}
 
 	/*Footer*/
 	.footer {
