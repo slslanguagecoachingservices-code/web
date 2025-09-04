@@ -449,186 +449,118 @@ header {
 }
 
 
-/* ===== COURSES SECTION ===== */
-.courses-section {
-	height: 100vh;
-  text-align: center;
+/* =====ALL COURSES SECTION ===== */
+.all-courses-section {
+  min-height: 90vh;
   padding: 4rem 2rem;
-  background: #ea5ab3;
+  background: rgb(247, 100, 244);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.courses-subtitle {
-  color: #888;
-  font-size: 0.9rem;
+.all-courses-subtitle {
+  color: #6b7280;
+  font-size: 0.875rem;
+  font-weight: 500;
   letter-spacing: 2px;
-  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+  opacity: 0.8;
 }
 
-.courses-title {
-  font-size: 2rem;
-  font-weight: bold;
-  margin-bottom: 2.5rem;
-  color: #333;
-}
-
-.courses-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1.5rem;
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-.course-card {
-  background: #fff;
-  border: 1px solid #e6e6e6;
-  border-radius: 12px;
-  padding: 2rem 1.5rem;
-  transition: all 0.3s ease;
-  cursor: pointer;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-}
-
-.course-icon {
+.all-courses-title {
   font-size: 2.5rem;
-  margin-bottom: 1rem;
-  color: #007bff; /* Blue */
-}
-
-.course-card h3 {
-  font-size: 1.1rem;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-  color: #333;
-}
-
-.course-card p {
-  font-size: 0.9rem;
-  color: #666;
-}
-
-/* Hover effect */
-.course-card:hover {
-  background: #007bff; /* Blue → Pink */
-  color: #fff;
-  transform: translateY(-6px);
-  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
-}
-
-.course-card:hover .course-icon,
-.course-card:hover h3,
-.course-card:hover p {
-  color: #fff;
-}
-
-
-/* HOT PROGRAMS SECTION */
-.programs {
-	height: 100vh;
-  padding: 4rem 2rem;
-  background: #fff1f3;
-  text-align: center;
-}
-
-.programs h2 {
-  font-size: 2rem;
   font-weight: 700;
   margin-bottom: 3rem;
-  color: #333;
+  color: #1f2937;
+  line-height: 1.2;
 }
 
-/* Carousel container */
-.carousel-container {
+.all-courses-grid {
   display: flex;
-  justify-content: center;
-  overflow: hidden;
-  max-width: 1100px;
+  gap: 1.5rem;
+  max-width: 1200px;
   margin: 0 auto;
+  padding: 1rem;
+  transition: transform 0.3s ease;
 }
 
-.programsGrid {
-  display: flex;
-  gap: 2rem;
-  transition: transform 0.6s ease;
-}
-
-.course-card {
-  flex: 0 0 300px; /* Exactly 3 cards visible at a time */
-  background: #fff;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+.all-course-card {
+  background: rgba(67, 174, 241, 0.95);
+  border: 1px solid rgba(229, 231, 235, 0.3);
+  border-radius: 16px;
   padding: 2rem 1.5rem;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  opacity: 0.7;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  position: relative;
+  overflow: hidden;
+  flex: 0 0 auto;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-.course-card.active {
-  transform: scale(1.1);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+.all-course-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.all-course-card:hover::before {
   opacity: 1;
 }
 
-.course-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+.all-course-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1.25rem;
+  filter: grayscale(0.2);
+  transition: all 0.3s ease;
 }
 
-.course-card .icon {
-  font-size: 3rem;
-  color: #007bff; /* Blue accent */
-  margin-bottom: 1rem;
-}
-
-.course-card .course-title {
-  font-size: 1.25rem;
+.all-course-card h3 {
+  font-size: 1.125rem;
   font-weight: 600;
   margin-bottom: 0.75rem;
-  color: #333;
+  color: #1f2937;
+  text-align: center;
+  line-height: 1.4;
 }
 
-.course-card .rating {
-  color: #007bff;
+.all-course-card p {
+  font-size: 0.875rem;
+  color: #6b7280;
   font-weight: 500;
-  margin-bottom: 0.5rem;
+  margin: 0;
 }
 
-.course-card .author {
-  font-size: 0.9rem;
-  color: #666;
-  margin-bottom: 0.25rem;
+.all-course-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+  background: rgba(255, 255, 255, 1);
 }
 
-.course-card .details {
-  font-size: 0.9rem;
-  color: #666;
-  margin-bottom: 1rem;
+.all-course-card:hover .all-course-icon {
+  filter: grayscale(0);
+  transform: scale(1.1);
 }
 
-.course-card .price {
-  background: #f1f5ff;
-  color: #007bff;
-  padding: 0.5rem;
-  border-radius: 4px;
-  font-weight: 600;
-  margin-bottom: 1rem;
+.all-course-card:hover h3 {
+  color: #3b82f6;
 }
 
-/* Enroll button */
-.enroll-btn {
-  background: #007bff;
-  color: #fff;
-  font-weight: 600;
-  padding: 0.75rem 1.25rem;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-.enroll-btn:hover {
-  background: #0056b3;
-}
-
+/* ===== HOT COURSES SECTION ===== */
 
 
 /* BLOG SECTION */
@@ -875,6 +807,47 @@ html, body {
    WEB DESIGN
    ===================== */
 
+/* ===== 1181px and above - Extra Large Desktop ===== */
+@media (min-width: 1181px) {
+  .all-courses-section {
+    padding: 5rem 3rem;
+  }
+  
+  .all-courses-title {
+    font-size: 2.75rem;
+    margin-bottom: 4rem;
+  }
+  
+  .all-courses-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2.5rem;
+    overflow: visible;
+  }
+  
+  .all-course-card {
+    width: 80%;
+    max-width: none;
+    justify-self: center;
+    padding: 3rem 2rem;
+    height: 60%;
+  }
+  
+  .all-course-icon {
+    font-size: 3.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .all-course-card h3 {
+    font-size: 1.375rem;
+    margin-bottom: 1rem;
+  }
+  
+  .all-course-card p {
+    font-size: 1rem;
+  }
+}
+
 @media (min-width: 993px) and (max-width: 1180px) {
 	header {
 		background-image: url("../images/backgrd2.png");
@@ -905,6 +878,39 @@ html, body {
 	}
 	.number-item p {
 		font-size: 1.1rem;
+	}
+
+	/*Courses Section*/
+	.all-courses-section {
+		padding: 4.5rem 2.5rem;
+	}
+	
+	.all-courses-title {
+		font-size: 2.5rem;
+		margin-bottom: 3.5rem;
+	}
+	.all-courses-grid {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		gap: 2rem;
+		overflow: visible;
+	}
+	.all-course-card {
+		width: auto;
+		max-width: 260px;
+		justify-self: center;
+		padding: 2.5rem 1.75rem;
+		min-height: 240px;
+	}
+	.all-course-icon {
+		font-size: 3rem;
+		margin-bottom: 1.75rem;
+	}
+	.all-course-card h3 {
+		font-size: 1.25rem;
+	}
+	.all-course-card p {
+		font-size: 0.9rem;
 	}
 }
 
@@ -947,6 +953,38 @@ html, body {
 	.number-item p {
 		font-size: 1rem;
 	}
+	.all-courses-section {
+    padding: 4rem 2rem;
+  }
+  
+  .all-courses-title {
+    font-size: 2.375rem;
+    margin-bottom: 3rem;
+  }
+  
+  .all-courses-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.75rem;
+    overflow: visible;
+  }
+  
+  .all-course-card {
+    width: auto;
+    max-width: 280px;
+    justify-self: center;
+    padding: 2.25rem 1.5rem;
+    min-height: 220px;
+  }
+  
+  .all-course-icon {
+    font-size: 2.75rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .all-course-card h3 {
+    font-size: 1.2rem;
+  }
 }
 
 /* Vertical Tablet */
@@ -1099,6 +1137,29 @@ html, body {
 			font-size: 1rem;
 		}
 
+		/*Courses Section*/
+		.all-courses-section {
+    padding: 3.5rem 2rem;
+  }
+  
+  .all-courses-title {
+    font-size: 2.25rem;
+    margin-bottom: 2.75rem;
+  }
+  
+  .all-courses-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    overflow: visible;
+  }
+  
+  .all-course-card {
+    width: auto;
+    max-width: 350px;
+    justify-self: center;
+  }
+
 	/*Footer*/
 	.footer {
 		flex-direction: column;
@@ -1244,7 +1305,6 @@ html, body {
 	}
 
 	/*STATS Section*/
-	@media (min-width: 401px) and (max-width: 600px) {
 		.sls-numbers {
 			padding: 2.5rem 1.25rem;
 		}
@@ -1274,7 +1334,53 @@ html, body {
 		.number-item p {
 			font-size: 0.95rem;
 		}
-	}
+
+		/*Courses Section*/
+		.all-courses-section {
+    padding: 3rem 1.5rem;
+    min-height: 85vh;
+  }
+  
+  .all-courses-subtitle {
+    font-size: 0.8rem;
+  }
+  
+  .all-courses-title {
+    font-size: 2rem;
+    margin-bottom: 2.5rem;
+  }
+  
+  .all-courses-grid {
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    gap: 1.25rem;
+    padding: 0.75rem 1.5rem;
+    margin: 0 -1.5rem;
+  }
+  
+  .all-courses-grid::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .all-course-card {
+    width: 300px;
+    scroll-snap-align: center;
+    padding: 1.75rem 1.25rem;
+    min-height: 190px;
+  }
+  
+  .all-course-icon {
+    font-size: 2.25rem;
+    margin-bottom: 1.125rem;
+  }
+  
+  .all-course-card h3 {
+    font-size: 1.05rem;
+  
 
 	/*Footer*/
 	.footer {
@@ -1446,50 +1552,57 @@ html, body {
 		font-size: 0.9rem;
 	}
 	/* Our Courses Section */
-	.courses-section {
-		padding: 2rem 1rem;
-		height: auto;
+	.all-courses-section {
+		padding: 2.5rem 1rem;
 		min-height: 80vh;
-  	}
-	.courses-subtitle {
-		font-size: 0.8rem;
+	}
+	
+	.all-courses-subtitle {
+		font-size: 0.75rem;
 		letter-spacing: 1px;
 	}
-  	.courses-title {
-		font-size: 1.5rem;
+	
+	.all-courses-title {
+		font-size: 1.875rem;
 		margin-bottom: 2rem;
 	}
-	.courses-carousel {
+	
+	.all-courses-grid {
+		overflow-x: auto;
+		overflow-y: hidden;
+		scroll-snap-type: x mandatory;
+		-webkit-overflow-scrolling: touch;
+		scrollbar-width: none;
+		-ms-overflow-style: none;
 		gap: 1rem;
-		padding: 0 1rem;
+		padding: 0.5rem 1rem;
+		margin: 0 -1rem;
 	}
-	.course-card {
-		width: 150px;
+	
+	.all-courses-grid::-webkit-scrollbar {
+		display: none;
+	}
+	
+	.all-course-card {
+		width: 260px;
+		scroll-snap-align: center;
 		padding: 1.5rem 1rem;
-		height: 180px;
+		min-height: 180px;
 	}
-	.course-icon {
+	
+	.all-course-icon {
 		font-size: 2rem;
-		margin-bottom: 0.75rem;
+		margin-bottom: 1rem;
 	}
-	.course-card h3 {
-    	font-size: 1rem;
+	
+	.all-course-card h3 {
+		font-size: 1rem;
+		margin-bottom: 0.5rem;
 	}
-	.course-card p {
-    	font-size: 0.85rem;
+	
+	.all-course-card p {
+		font-size: 0.8rem;
 	}
-	.carousel-nav {
-		width: 40px;
-		height: 40px;
-		font-size: 1.2rem;
-	}
-	.carousel-prev {
-    	left: 0.5rem;
-	}
-	.carousel-next {
-		right: 0.5rem;
-	}
-
 	/*Footer*/
 	.footer {
 		flex-direction: column;

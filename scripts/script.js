@@ -1,5 +1,3 @@
-//alert("External JS file is linked properly!");
-
 document.addEventListener("DOMContentLoaded", () => {
   /* ===== NAVBAR ===== */
   const navbarToggle = document.querySelector('.navbar-toggle');
@@ -72,20 +70,20 @@ document.addEventListener("DOMContentLoaded", () => {
     const indicators = document.querySelectorAll('.indicator');
 
     function updateDisplay() {
-  const cardWidth = 380; // 350px + 30px gap
-  const offset = currentIndex * cardWidth;
-  grid.style.transform = `translateX(-${offset}px)`;
+      const cardWidth = 380; // 350px + 30px gap
+      const offset = currentIndex * cardWidth;
+      grid.style.transform = `translateX(-${offset}px)`;
 
-  const middleIndex = (currentIndex + 1) % cards.length;
+      const middleIndex = (currentIndex + 1) % cards.length;
 
-  cards.forEach((card, index) => {
-    card.classList.toggle('active', index === middleIndex);
-  });
+      cards.forEach((card, index) => {
+        card.classList.toggle('active', index === middleIndex);
+      });
 
-  indicators.forEach((indicator, index) => {
-    indicator.classList.toggle('active', index === middleIndex);
-  });
-}
+      indicators.forEach((indicator, index) => {
+        indicator.classList.toggle('active', index === middleIndex);
+      });
+    }
 
     function nextCard() {
       currentIndex = (currentIndex + 1) % cards.length;
@@ -108,65 +106,128 @@ document.addEventListener("DOMContentLoaded", () => {
     grid.addEventListener('mouseenter', () => clearInterval(autoScrollInterval));
     grid.addEventListener('mouseleave', startAutoScroll);
   }
+
+  /* ===== COURSES CAROUSEL (NEW) ===== */
+  const coursesCarousel = document.querySelector('.courses-carousel');
+  const coursesContainer = document.querySelector('.courses-carousel-container');
+  if (coursesCarousel && coursesContainer) {
+    const courseCards = coursesCarousel.querySelectorAll('.course-card');
+    let currentIndex = 0;
+
+    // Create navigation buttons
+    const prevButton = document.createElement('button');
+    prevButton.className = 'carousel-nav carousel-prev';
+    prevButton.innerHTML = '‹';
+    prevButton.setAttribute('aria-label', 'Previous course');
+
+    const nextButton = document.createElement('button');
+    nextButton.className = 'carousel-nav carousel-next';
+    nextButton.innerHTML = '›';
+    nextButton.setAttribute('aria-label', 'Next course');
+
+    coursesContainer.appendChild(prevButton);
+    coursesContainer.appendChild(nextButton);
+
+    function updateCarousel() {
+      // Calculate card width based on screen size
+      let cardWidth = 320; // Default for mobile
+      const screenWidth = window.innerWidth;
+      
+      if (screenWidth > 1181) {
+        cardWidth = 500 + 40; // card width + gap
+      } else if (screenWidth > 993) {
+        cardWidth = 460 + 32; // card width + gap
+      } else if (screenWidth > 779) {
+        cardWidth = 420 + 28; // card width + gap
+      } else if (screenWidth > 601) {
+        cardWidth = 380 + 24; // card width + gap
+      } else if (screenWidth > 401) {
+        cardWidth = 320 + 20; // card width + gap
+      } else {
+        cardWidth = 280 + 16; // card width + gap
+      }
+
+      const offset = currentIndex * cardWidth;
+      coursesCarousel.style.transform = `translateX(-${offset}px)`;
+    }
+
+    function nextCourse() {
+      currentIndex = (currentIndex + 1) % courseCards.length;
+      updateCarousel();
+    }
+
+    function prevCourse() {
+      currentIndex = (currentIndex - 1 + courseCards.length) % courseCards.length;
+      updateCarousel();
+    }
+
+    // Event listeners
+    nextButton.addEventListener('click', nextCourse);
+    prevButton.addEventListener('click', prevCourse);
+
+    // Touch/swipe support for mobile
+    let startX = 0;
+    let isDragging = false;
+
+    coursesCarousel.addEventListener('touchstart', (e) => {
+      startX = e.touches[0].clientX;
+      isDragging = true;
+    });
+
+    coursesCarousel.addEventListener('touchmove', (e) => {
+      if (!isDragging) return;
+      e.preventDefault();
+    });
+
+    coursesCarousel.addEventListener('touchend', (e) => {
+      if (!isDragging) return;
+      isDragging = false;
+      
+      const endX = e.changedTouches[0].clientX;
+      const diffX = startX - endX;
+      
+      if (Math.abs(diffX) > 50) { // Minimum swipe distance
+        if (diffX > 0) {
+          nextCourse(); // Swipe left - next course
+        } else {
+          prevCourse(); // Swipe right - previous course
+        }
+      }
+    });
+
+    // Keyboard navigation
+    coursesContainer.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') {
+        prevCourse();
+      } else if (e.key === 'ArrowRight') {
+        nextCourse();
+      }
+    });
+
+    // Update on window resize
+    window.addEventListener('resize', updateCarousel);
+
+    // Initialize
+    updateCarousel();
+  }
 });
 
-
-/* ===== PROGRAMS SLIDER ===== */
-const programsGrid = document.getElementById('programsGrid');
-const cards = document.querySelectorAll('.course-card');
-
-if (programsGrid && cards.length > 0) {
-  let currentIndex = 0;
-  let autoScrollInterval;
-
-  function updateDisplay() {
-    const cardWidth = 320; // 300px + ~20px gap
-    const offset = currentIndex * cardWidth;
-    programsGrid.style.transform = `translateX(-${offset}px)`;
-
-    // Highlight the middle card of the 3 visible
-    cards.forEach((card, index) => {
-      const middleIndex = currentIndex + 1; // always center of 3
-      card.classList.toggle('active', index === middleIndex);
-    });
-  }
-
-  function nextCard() {
-    // Keep looping so that 3 cards are always visible
-    currentIndex = (currentIndex + 1) % (cards.length - 2);
-    updateDisplay();
-  }
-
-  function startAutoScroll() {
-    autoScrollInterval = setInterval(nextCard, 4000); // 4s per move
-  }
-
-  function stopAutoScroll() {
-    clearInterval(autoScrollInterval);
-  }
-
-  // Init
-  updateDisplay();
-  startAutoScroll();
-
-  programsGrid.addEventListener('mouseenter', stopAutoScroll);
-  programsGrid.addEventListener('mouseleave', startAutoScroll);
-}
-
-/*MENU TOGGLE*/
+/* ===== MENU TOGGLE ===== */
 const navbarToggle = document.querySelector('.navbar-toggle');
 const navbarMenu = document.querySelector('.navbar-menu');
 const overlay = document.querySelector('.overlay');
 
-navbarToggle.addEventListener('click', () => {
-	navbarToggle.classList.toggle('active');
-	navbarMenu.classList.toggle('active');
-	overlay.classList.toggle('active');
-});
+if (navbarToggle && navbarMenu && overlay) {
+  navbarToggle.addEventListener('click', () => {
+    navbarToggle.classList.toggle('active');
+    navbarMenu.classList.toggle('active');
+    overlay.classList.toggle('active');
+  });
 
-overlay.addEventListener('click', () => {
-	// Close everything when clicking the overlay
-	navbarToggle.classList.remove('active');
-	navbarMenu.classList.remove('active');
-	overlay.classList.remove('active');
-});
+  overlay.addEventListener('click', () => {
+    // Close everything when clicking the overlay
+    navbarToggle.classList.remove('active');
+    navbarMenu.classList.remove('active');
+    overlay.classList.remove('active');
+  });
+}
