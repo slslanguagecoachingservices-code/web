@@ -293,11 +293,7 @@ header {
   color: #ddd;
   margin-top: 0.5rem;
 }
-  @media (max-width: 600px) {
-    .number-item {
-      width: 100%;
-    }
-  }
+
 
 /* TESTIMONIALS Section */
 
@@ -726,7 +722,7 @@ header {
 	color: #fff;
     }
 
-/* Contact Section */
+/* CONTACT US*/
 .contact {
 	padding: 3rem 2rem;
 	max-width: 1000px;
@@ -875,12 +871,40 @@ html, body {
 }
 
 /* =====================
-   MEDIA QUERIES/RESPONSIVE WEB DESIGN
+   MEDIA QUERIES/RESPONSIVE 
+   WEB DESIGN
    ===================== */
 
 @media  screen and (max-width: 1129px) {
 	header {
 		background-image: url("../images/backgrd2.png");
+	}
+
+	/*Stats Section*/
+	.sls-numbers {
+		padding: 4rem 2.5rem;
+	}	
+	.sls-numbers h2 {
+		font-size: 2.5rem;
+		margin-bottom: 2.5rem;
+	}
+	.numbers-container {
+		gap: 2.25rem;
+		flex-direction: row;
+		flex-wrap: nowrap;
+		justify-content: center;
+	}
+	.number-item {
+		padding: 1.25rem;
+		min-width: 150px;
+		flex: 1;
+		max-width: 220px;
+	}
+	.number-item h3 {
+		font-size: 3.25rem;
+	}
+	.number-item p {
+		font-size: 1.1rem;
 	}
 }
 
@@ -897,6 +921,32 @@ html, body {
 		display: None;
 	}
 
+	/*Stats Section*/
+	.sls-numbers {
+		padding: 3.5rem 2rem;
+	}
+	.sls-numbers h2 {
+		font-size: 2.25rem;
+		margin-bottom: 2.25rem;
+	}
+	.numbers-container {
+		gap: 2rem;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+	.number-item {
+		padding: 1.125rem;
+		min-width: 140px;
+		flex: 0 1 calc(33.333% - 1.5rem);
+		max-width: 200px;
+	}
+	.number-item h3 {
+		font-size: 3rem;
+	}
+	.number-item p {
+		font-size: 1rem;
+	}
 }
 
 /* Vertical Tablet */
@@ -1016,6 +1066,40 @@ html, body {
 		font-size: 0.85rem !important;
 		line-height: 1.4 !important;
 	}
+
+	/*STATS Section*/
+	.sls-numbers {
+			padding: 3rem 1.5rem;
+		}
+		
+		.sls-numbers h2 {
+			font-size: 2rem;
+			margin-bottom: 2rem;
+		}
+		
+		.numbers-container {
+			gap: 1.75rem;
+			flex-direction: row;
+			flex-wrap: wrap;
+			justify-content: center;
+		}
+		
+		.number-item {
+			padding: 1rem;
+			min-width: 130px;
+			flex: 0 1 calc(50% - 1rem);
+			max-width: 180px;
+		}
+		
+		.number-item h3 {
+			font-size: 2.75rem;
+		}
+		
+		.number-item p {
+			font-size: 1rem;
+		}
+	}
+
 
 	/*Footer*/
 	.footer {
@@ -1161,6 +1245,39 @@ html, body {
 		line-height: 1.4 !important;
 	}
 
+	/*STATS Section*/
+	@media (min-width: 401px) and (max-width: 600px) {
+		.sls-numbers {
+			padding: 2.5rem 1.25rem;
+		}
+		
+		.sls-numbers h2 {
+			font-size: 1.75rem;
+			margin-bottom: 1.75rem;
+		}
+		
+		.numbers-container {
+			gap: 1.5rem;
+			flex-direction: row;
+			justify-content: space-around;
+		}
+		
+		.number-item {
+			padding: 0.875rem;
+			min-width: 110px;
+			flex: 1;
+			max-width: 150px;
+		}
+		
+		.number-item h3 {
+			font-size: 2.25rem;
+		}
+		
+		.number-item p {
+			font-size: 0.95rem;
+		}
+	}
+
 	/*Footer*/
 	.footer {
 		flex-direction: column;
@@ -1299,6 +1416,39 @@ html, body {
 		font-size: 0.85rem !important;
 		line-height: 1.4 !important;
 	}
+
+	/*Stats Section*/
+	@media (max-width: 400px) {
+	.sls-numbers {
+		padding: 2rem 1rem;
+	}
+	
+	.sls-numbers h2 {
+		font-size: 1.5rem;
+		margin-bottom: 1.5rem;
+	}
+	
+	.numbers-container {
+		gap: 1rem;
+		flex-direction: column;
+		align-items: center;
+	}
+	
+	.number-item {
+		padding: 0.75rem;
+		min-width: 100px;
+		width: 100%;
+		max-width: 200px;
+	}
+	
+	.number-item h3 {
+		font-size: 2rem;
+	}
+	
+	.number-item p {
+		font-size: 0.9rem;
+	}
+}
 
 	/*Footer*/
 	.footer {
